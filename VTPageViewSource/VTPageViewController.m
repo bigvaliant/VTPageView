@@ -16,11 +16,17 @@ static const CGFloat kMAPageControlHeight = 140;
 
 @implementation VTPageViewController
 
-- (instancetype)initWithCustom:(NSArray *)viewControllers pageDotImages:(NSArray *)pageDotImages {
+- (instancetype)initWithCustom:(NSArray *)viewControllers
+                pageDotImages:(NSArray *)pageDotImages
+                pageDotWidth:(CGFloat)dotWidth
+                pageDotMargin:(CGFloat)dotMargin
+{
     self = [super init];
     
     _viewControllers = viewControllers;
     _pageDotImages = pageDotImages;
+    _dotWidth = dotWidth;
+    _dotMargin = dotMargin;
     
     return self;
 }
@@ -48,16 +54,11 @@ static const CGFloat kMAPageControlHeight = 140;
     [self.view addSubview:_pageViewController.view];
     [_pageViewController didMoveToParentViewController:self];
     
-    _pageControl = [[VTUIPageControl alloc]
-        initWithFrame:CGRectMake(0, CGRectGetMaxY(self.view.bounds) - kMAPageControlHeight, self.view.bounds.size.width, kMAPageControlHeight)
-        dotImages:[NSArray arrayWithObjects:
-                   [UIImage imageNamed:@"page_sj"],
-                   [UIImage imageNamed:@"page_nz"],
-                   [UIImage imageNamed:@"page_djr"],
-                   [UIImage imageNamed:@"page_sm"],
-                   nil]
-        dotW:25.0f
-        dotM:10.0f
+    _pageControl = [[VTUIPageControl alloc] initWithFrame:
+        CGRectMake(0, CGRectGetMaxY(self.view.bounds) - kMAPageControlHeight, self.view.bounds.size.width, kMAPageControlHeight)
+        dotImages:_pageDotImages
+        dotW:_dotWidth
+        dotM:_dotMargin
     ];
     _pageControl.delegate = self;
     _pageControl.numberOfPages = _viewControllers.count;

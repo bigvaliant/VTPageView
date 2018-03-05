@@ -30,6 +30,8 @@
     v3.view.backgroundColor = [UIColor purpleColor];
     ViewController *v4 = [ViewController new];
     v4.view.backgroundColor = [UIColor yellowColor];
+    
+    
     NSArray *images = [NSArray arrayWithObjects:
                        [UIImage imageNamed:@"page_sj"],
                        [UIImage imageNamed:@"page_nz"],
@@ -37,7 +39,12 @@
                        [UIImage imageNamed:@"page_sm"],
                        nil];
     NSArray *viewControllers = @[v1, v2, v3, v4];
-    VTPageViewController* mainVC = [[VTPageViewController alloc] initWithCustom:viewControllers pageDotImages:images];
+    VTPageViewController* mainVC = [[VTPageViewController alloc]
+                                    initWithCustom:viewControllers
+                                    pageDotImages:images
+                                    pageDotWidth:25.0f
+                                    pageDotMargin:15.0f
+                                ];
     
     [self.window setRootViewController:mainVC];
     [self.window makeKeyAndVisible];

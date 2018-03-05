@@ -14,8 +14,12 @@
     UIPageViewController *_pageViewController;
     VTUIPageControl *_pageControl;
     NSArray *_pageDotImages;
+    CGFloat _dotWidth;
+    CGFloat _dotMargin;
 }
 
-- (instancetype)initWithCustom:(NSArray *)viewControllers pageDotImages:(NSArray *)pageDotImages;
-
+- (instancetype)initWithCustom:(NSArray *)viewControllers
+                 pageDotImages:(NSArray *)pageDotImages
+                  pageDotWidth:(CGFloat)dotWidth
+                 pageDotMargin:(CGFloat)dotMargin;
 @end
