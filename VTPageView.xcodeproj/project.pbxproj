@@ -17,6 +17,7 @@
 		E3CBC433204D4E7500249AB5 /* VTPageViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CBC432204D4E7500249AB5 /* VTPageViewUITests.m */; };
 		E3CBC446204D4F1A00249AB5 /* VTPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CBC442204D4F1A00249AB5 /* VTPageViewController.m */; };
 		E3CBC447204D4F1A00249AB5 /* VTUIPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CBC444204D4F1A00249AB5 /* VTUIPageControl.m */; };
+		E3CBC449204D917600249AB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E3CBC448204D917600249AB5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E3CBC443204D4F1A00249AB5 /* VTUIPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTUIPageControl.h; sourceTree = "<group>"; };
 		E3CBC444204D4F1A00249AB5 /* VTUIPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTUIPageControl.m; sourceTree = "<group>"; };
 		E3CBC445204D4F1A00249AB5 /* VTPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPageViewController.h; sourceTree = "<group>"; };
+		E3CBC448204D917600249AB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				E3CBC426204D4E7500249AB5 /* VTPageViewTests */,
 				E3CBC431204D4E7500249AB5 /* VTPageViewUITests */,
 				E3CBC40C204D4E7400249AB5 /* Products */,
+				E3CBC448204D917600249AB5 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,6 +261,7 @@
 			files = (
 				E3CBC41B204D4E7500249AB5 /* LaunchScreen.storyboard in Resources */,
 				E3CBC418204D4E7500249AB5 /* Assets.xcassets in Resources */,
+				E3CBC449204D917600249AB5 /* README.md in Resources */,
 				E3CBC416204D4E7500249AB5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
