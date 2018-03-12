@@ -41,21 +41,13 @@
     //计算整个pageControll的宽度
     CGFloat newW = self.subviews.count * marginX - dotMargin;
     
-    //设置新frame
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newW, self.frame.size.height);
-
-    //设置居中
-    CGPoint center = self.center;
-    center.x = self.superview.center.x;
-    self.center = center;
-    
     //遍历subview,设置圆点frame
     for (int i=0; i<[self.subviews count]; i++) {
         UIView* dot = [self.subviews objectAtIndex:i];
         if (i == self.currentPage) {
-            [dot setFrame:CGRectMake(i * marginX, dot.frame.origin.y, dotWidth, dotWidth)];
+            [dot setFrame:CGRectMake(i * marginX, 0, dotWidth, dotWidth)];
         }else {
-            [dot setFrame:CGRectMake(i * marginX, dot.frame.origin.y, dotWidth, dotWidth)];
+            [dot setFrame:CGRectMake(i * marginX, 0, dotWidth, dotWidth)];
         }
         
         UIImageView* dotImageView = [self imageViewForSubview: dot];
@@ -68,6 +60,14 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(whenClickImage:)];
         [dotImageView addGestureRecognizer:singleTap];
     }
+    
+    //设置新frame
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, newW, dotWidth);
+    
+    //设置居中
+    CGPoint center = self.center;
+    center.x = self.superview.center.x;
+    self.center = center;
 }
 
 -(void)whenClickImage:(id)sender {
@@ -98,11 +98,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
+

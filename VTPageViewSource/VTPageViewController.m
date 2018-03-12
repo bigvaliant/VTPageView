@@ -8,8 +8,6 @@
 
 #import "VTPageViewController.h"
 
-static const CGFloat kMAPageControlHeight = 140;
-
 @interface VTPageViewController ()
 
 @end
@@ -17,6 +15,7 @@ static const CGFloat kMAPageControlHeight = 140;
 @implementation VTPageViewController
 
 - (instancetype)initWithCustom:(NSArray *)viewControllers
+                pageCntrYMargin:(CGFloat)cntrYMargin
                 pageDotImages:(NSArray *)pageDotImages
                 pageDotWidth:(CGFloat)dotWidth
                 pageDotMargin:(CGFloat)dotMargin
@@ -24,6 +23,7 @@ static const CGFloat kMAPageControlHeight = 140;
     self = [super init];
     
     _viewControllers = viewControllers;
+    _cntrYMargin = cntrYMargin;
     _pageDotImages = pageDotImages;
     _dotWidth = dotWidth;
     _dotMargin = dotMargin;
@@ -48,14 +48,14 @@ static const CGFloat kMAPageControlHeight = 140;
     _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
-    _pageViewController.view.frame = self.view.frame;
+    [_pageViewController.view setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height-_cntrYMargin)];
     [_pageViewController setViewControllers:@[_viewControllers[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [_pageViewController didMoveToParentViewController:self];
     
     _pageControl = [[VTUIPageControl alloc] initWithFrame:
-        CGRectMake(0, CGRectGetMaxY(self.view.bounds) - kMAPageControlHeight, self.view.bounds.size.width, kMAPageControlHeight)
+        CGRectMake(0, CGRectGetMaxY(self.view.bounds) - _cntrYMargin, self.view.bounds.size.width, _dotWidth)
         dotImages:_pageDotImages
         dotW:_dotWidth
         dotM:_dotMargin

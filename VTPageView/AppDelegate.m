@@ -41,8 +41,9 @@
     NSArray *viewControllers = @[v1, v2, v3, v4];
     VTPageViewController* mainVC = [[VTPageViewController alloc]
                                     initWithCustom:viewControllers
+                                    pageCntrYMargin:120.0f
                                     pageDotImages:images
-                                    pageDotWidth:25.0f
+                                    pageDotWidth:30.0f
                                     pageDotMargin:15.0f
                                 ];
     
